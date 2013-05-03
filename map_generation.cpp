@@ -202,56 +202,126 @@ void map_generation (char map[80][80], int &x, int &y, int &face_direction,
 
 void update_rooms(char map[80][80])
 {	
-	for (short unsigned int i = 1; i < 79; ++i)
+	//updates room x5 could cause lag but highly doubt it
+	//a way to clean up the map and make it neater
+	//need to learn a better method in future
+	for (int i= 0; i < 5; i++ )
 	{
-		for (short unsigned int j = 1; j < 79; ++j) 
+		for (short unsigned int i = 1; i < 79; ++i)
 		{
-			int count = 0;
-			if(map[i-1][j-1] == '#' || map[i-1][j-1] == '%')
-			{	
-				++count;
-			} 
-			if(map[i-1][j] == '#' || map[i-1][j] == '%')
+			for (short unsigned int j = 1; j < 79; ++j) 
 			{
-				++count;
-			} 
-			if(map[i-1][j+1] == '#' || map[i-1][j+1] == '%')
-			{
-				++count;
-			} 
-			if(map[i][j-1] == '#' || map[i][j-1] == '%')
-			{
-				++count;
-			} 
-			if(map[i][j+1] == '#' || map[i][j+1] == '%')
-			{
-				++count;
-			} 
-			if(map[i+1][j-1] == '#' || map[i+1][j-1] == '%' )
-			{
-				++count;
-			} 
-			if(map[i+1][j] == '#' || map[i+1][j] == '%')
-			{
-				++count;
-			} 
-			if(map[i+1][j+1] == '#' || map[i+1][j+1] == '%' )
-			{
-				++count;
-			} 
-			if(map[i][j] == '#' || map[i][j] == '%')
-			{
-				++count;
+				int count = 0;
+				int count1 = 0;
+				int count2 = 0;
+				if(map[i-1][j-1] == '#' || map[i-1][j-1] == '%')
+				{	
+					++count;
+				} 
+				if(map[i-1][j] == '#' || map[i-1][j] == '%')
+				{
+					++count;
+				} 
+				if(map[i-1][j+1] == '#' || map[i-1][j+1] == '%')
+				{
+					++count;
+				} 
+				if(map[i][j-1] == '#' || map[i][j-1] == '%')
+				{
+					++count;
+				} 
+				if(map[i][j+1] == '#' || map[i][j+1] == '%')
+				{
+					++count;
+				} 
+				if(map[i+1][j-1] == '#' || map[i+1][j-1] == '%' )
+				{
+					++count;
+				} 
+				if(map[i+1][j] == '#' || map[i+1][j] == '%')
+				{
+					++count;
+				} 
+				if(map[i+1][j+1] == '#' || map[i+1][j+1] == '%' )
+				{
+					++count;
+				} 
+				if(map[i][j] == '#' || map[i][j] == '%')
+				{
+					++count;
+				}
+				//to make the map a little more cleaner (not sure if it matters)
+				if(map[i-1][j-1] == '.')
+				{	
+					++count2;
+				} 
+				if(map[i-1][j] == '.')
+				{
+					++count2;
+				} 
+				if(map[i-1][j+1] == '.')
+				{
+					++count2;
+				} 
+				if(map[i][j-1] == '.')
+				{
+					++count2;
+				} 
+				if(map[i][j+1] == '.')
+				{
+					++count2;
+				} 
+				if(map[i+1][j-1] == '.')
+				{
+					++count2;
+				} 
+				if(map[i+1][j] == '.')
+				{
+					++count2;
+				} 
+				if(map[i+1][j+1] == '.')
+				{
+					++count2;
+				} 
+				if(map[i][j] == '.')
+				{
+					++count2;
+				}
+				//BL
+				if(map[i-1][j] == '%' && map[i][j+1] == '%' && 
+									map[i-1][j+1] == '%' && map[i][j] == '#')
+				{
+					++count1;
+				} 
+				//BR
+				if(map[i-1][j-1] == '%' && map[i-1][j] == '%' && 
+									  map[i][j-1] == '%' && map[i][j] == '#')
+				{
+					++count1;
+				} 
+				//TR
+				if(map[i+1][j-1] == '%' && map[i+1][j] == '%' && 
+									  map[i][j-1] == '%' && map[i][j] == '#')
+				{
+					++count1;
+				} 
+				//TL
+				if(map[i+1][j+1] == '%' && map[i][j+j] == '%' && 
+									  map[i+1][j] == '%' && map[i][j] == '#')
+				{
+					++count1;
+				} 
+				if (count > 5)
+				{
+					map[i][j] = '%';
+				}
+				if (count1 == 1 && count2 > 2)
+				{
+					map[i][j] = '%';
+				}
 			}
-			if (count > 5)
-			{
-				map[i][j] = '%';
-			}
-
 		}
-
 	}
-
 }
 
 void map_variables(char map[80][80])
