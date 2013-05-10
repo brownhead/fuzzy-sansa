@@ -1,4 +1,4 @@
-#include "geometricpp"
+#include "geometric.cpp"
 
 class monster{
 	Point location;

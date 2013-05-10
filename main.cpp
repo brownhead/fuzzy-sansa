@@ -1,11 +1,10 @@
 #include "map_generation.hpp"
 #include "control.hpp"
+#include "geometric.cpp"
 #include <iostream>
 #include <cstdlib>
 
 using namespace std;
-
-
 
 
 void print_map(char map[80][80], Control position, Size view) {
