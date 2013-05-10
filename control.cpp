@@ -9,14 +9,31 @@ Control::Control (int dude_x, int dude_y)
 
 void Control::print_full_map (char map[][80]) const //done
 {
-	map[dude_x][dude_y] = '@';
+	int spot;
 	for (unsigned int r = 0; r < 80; r++)
 	{
 		for (unsigned int c = 0; c < 80; c++)
 		{
 			cout << map[r][c];
+			if (map[dude_x][dude_y] == '#')
+			{
+				spot = 0;
+			}
+			if (map[dude_x][dude_y] == '%')
+			{
+				spot = 1;
+			}
+			map[dude_x][dude_y] = '@';
 		}
 		cout << endl;
+	}
+	if (spot == 0)
+	{
+		map[dude_x][dude_y] = '#';
+	}
+	else if (spot == 1)
+	{
+		map[dude_x][dude_y] = '%';
 	}
 }
 

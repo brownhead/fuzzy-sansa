@@ -152,7 +152,7 @@ void room_generation(char map[80][80], int &x,int &y, int &face_direction,
 		for (int c =(y - 2); c < (3+y); c++) //column L R
 		{
 			//this prevented most if not all segmentation faults
-			if (r > 0 && c > 0 && r < 80 && c < 80) 
+			if (r > 2 && c > 2 && r < 78 && c < 78) 
 			{
 				map[r][c] = '%';
 			}
