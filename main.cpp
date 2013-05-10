@@ -6,21 +6,7 @@
 using namespace std;
 
 
-struct Point{
-	int x;
-	int y;
-};
 
-struct Size{
-	int x;
-	int y;
-};
-
-
-void set_points(Point &dude, int x, int y){
-	dude.x = x;
-	dude.y = y;
-}
 
 void print_map(char map[80][80], Point dude_location, Size view) {
 
