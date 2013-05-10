@@ -326,7 +326,6 @@ void update_rooms(char map[80][80])
 
 void map_variables(char map[80][80])
 {
-	int rand_value = 0;
 	int x = 40; //start position of X
 	int y = 40; //start position of Y
 	int total_tiles = 20; //number of turns taken. Note: size of map
