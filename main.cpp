@@ -3,9 +3,12 @@
 #include "geometric.cpp"
 #include <iostream>
 #include <cstdlib>
+#include "Item.hpp"
+#include "Status.hpp"
+#include <vector>
+#include <cstring>
 
 using namespace std;
-
 
 void print_map(char map[80][80], Control position, Size view) {
 
@@ -19,26 +22,6 @@ void print_map(char map[80][80], Control position, Size view) {
 			}
 			cout << endl;
 		}
-}
-
-class Status
-{
-	private:
-		int health;
-	public:
-		Status();
-		void print_health(char map[80][80]);
-};
-
-Status::Status()
-	:health(100)
-{
-}
-	
-void Status::print_health(char map[80][80])
-{
-	//health: 100
-	cout << "Health: " << health << endl;
 }
 
 void player_interface(Control position, char map[][80], Size view, Status life_points)
@@ -67,7 +50,8 @@ void player_interface(Control position, char map[][80], Size view, Status life_p
 		if (input == 'M' || input == 'm')
 		{
 			position.print_full_map(map);
-			life_points.print_health(map);
+			life_points.print_health();
+			life_points.print_armor();
 		}
 	}
 	cout << endl;
