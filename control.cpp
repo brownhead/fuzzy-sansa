@@ -1,4 +1,4 @@
-#include "control.hpp"
+#include "Control.hpp"
 #include <iostream>
 using namespace std;
 

@@ -1,12 +1,13 @@
-struct Point{
-	int x;
-	int y;
-};
+#include "geometric.hpp"
 
-struct Size{
-	int x;
-	int y;
-};
+Point::Point(): x(0), y(0){
+	// Empty
+}
+
+
+Point::Point(int x, int y): x(x), y(y){
+	// Empty
+}
 
 
 void set_points(Point &dude, int x, int y){

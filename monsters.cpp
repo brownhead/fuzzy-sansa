@@ -1,9 +1,9 @@
-#include "geometric.cpp"
+#include "monsters.hpp"
+#include <cstdlib>
 
 
 
-
-Monster::Monster(): location.x(rand()%80+1), locaion.y(rand()%80+1), hp(25){
+Monster::Monster(): name("Larry"), location(rand()%80+1, rand()%80+1), hp(25), ap(10){
 	// Empty
 }
 

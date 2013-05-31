@@ -1,10 +1,12 @@
 #include "map_generation.hpp"
 #include "control.hpp"
-#include "geometric.cpp"
-#include <iostream>
-#include <cstdlib>
+#include "geometric.hpp"
 #include "Item.hpp"
 #include "Status.hpp"
+#include "monsters.hpp"
+
+#include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <cstring>
 

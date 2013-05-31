@@ -1,7 +1,7 @@
 #include "Status.hpp"
 
 Status::Status() 
-	:health(100), item(), num_of_items(0)
+	:health(100)
 {
 }
 
@@ -19,10 +19,9 @@ void Status::add_item(int itemtype)
 		item.push_back(new Armor);
 	}
 	Item new_item(itemtype);
-	*(item.at(num_of_items)) = new_item;
-	temp0 = static_cast <Armor *> (item.at(num_of_items));
+	*(item.at(item.size()-1)) = new_item;
+	temp0 = static_cast <Armor *> (item.at(item.size()-1));
 	temp0 -> generate_stats();
-	num_of_items++;
 }
 
 void Status::print_armor()

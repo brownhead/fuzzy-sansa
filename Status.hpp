@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Item.cpp"
+#include "Item.hpp"
 
 using namespace std;
 
@@ -11,7 +11,6 @@ class Status
 	private:
 		int health;
 		vector<Item*> item;
-		int num_of_items;
 	public:
 		Status();
 		void add_item(int);

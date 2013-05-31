@@ -1,10 +1,17 @@
 #pragma once
 
+#include "monsters.hpp"
+#include <vector>
+
+using namespace std;
+
+
 class Control
 {
 	private:
 		int dude_x;
 		int dude_y;
+		vector<Monster> monsters;
 	public:
 		Control(int, int);
 		void print_full_map (char map[][80]) const;
