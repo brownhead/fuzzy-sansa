@@ -12,12 +12,15 @@
 
 using namespace std;
 
-void print_map(char map[80][80], Control position, Size view) {
+void print_map(char map[80][80], Control position, Size view, Monster monster1) {
 
 	for (int i = position.get_X(map) - view.x/2; i <= position.get_X(map) + view.x/2; ++i) {
 		for (int j = position.get_Y(map) - view.y/2; j <= position.get_Y(map) + view.y/2; ++j) {
 			if(i == position.get_X(map) && j == position.get_Y(map)){
 				cout  << '@' << " ";
+			}
+			else if(i == monster1.location.x && j == monster1.location.y){
+				cout << 'M' << " ";
 			}
 			else
 				cout << map[i][j] << " ";
@@ -26,7 +29,7 @@ void print_map(char map[80][80], Control position, Size view) {
 		}
 }
 
-void player_interface(Control position, char map[][80], Size view, Status life_points)
+void player_interface(Control position, char map[][80], Size view, Status life_points, Monster monster1)
 {
 	char input;
 	while (cin >> input)
@@ -47,7 +50,7 @@ void player_interface(Control position, char map[][80], Size view, Status life_p
 		{
 			position.move_right(map);
 		}
-		print_map(map, position,view);
+		print_map(map, position,view, monster1);
 		//position.print_full_map(map);
 		if (input == 'M' || input == 'm')
 		{
@@ -68,6 +71,13 @@ int main()
 	int x = 40;
 	int y = 40;
 
+	Size view;
+	view.x = 10;
+	view.y = 10;
+	Control position(x, y); //starting position for dude
+	Point dude_location;
+
+	Monster monster1;
 
 
 	cout << "Welcome to fuzzy-sansa!\n";
@@ -80,22 +90,18 @@ int main()
 		}
 	}
 
-	Size view;
-	view.x = 10;
-	view.y = 10;
+	
 
-	Control position(x, y); //starting position for dude
-	Point dude_location;
+	
 
 	map_variables(map); //GENERATES THE MAP
 	map[x][y] = '#';
 
 	set_points(dude_location, position.get_X(map), position.get_Y(map));
-	print_map(map, position, view);
+	print_map(map, position, view, monster1);
 	cout << endl;
 	Status life_points;
-	player_interface(position, map, view, life_points);
+	player_interface(position, map, view, life_points, monster1);
 
 	return 0;
 }
-
