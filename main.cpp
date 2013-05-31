@@ -29,7 +29,7 @@ void print_map(char map[80][80], Control position, Size view) {
 void player_interface(Control position, char map[][80], Size view, Status life_points)
 {
 	char input;
-	while (cin >> input && (input != 'Q' || input != 'q'))
+	while (cin >> input)
 	{
 		if (input == 'W' || input == 'w') //UP 
 		{
@@ -55,6 +55,8 @@ void player_interface(Control position, char map[][80], Size view, Status life_p
 			life_points.print_health();
 			life_points.print_armor();
 		}
+		if(input == 'Q' || input == 'q')
+			break;
 	}
 	cout << endl;
 }
