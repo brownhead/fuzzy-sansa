@@ -64,9 +64,11 @@ int main()
 	int x = 40;
 	int y = 40;
 
+
+
 	cout << "Welcome to fuzzy-sansa!\n";
 
-	char map[80][80];
+	char map[80][80]; // Initialize map with periods
 
 	for (unsigned int i = 0; i < 80; ++i) {
 		for (unsigned int j = 0; j < 80; ++j) {
