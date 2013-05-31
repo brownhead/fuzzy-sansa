@@ -21,4 +21,7 @@ class Control
 		void move_down (char map[][80]);
 		void move_left (char map[][80]);
 		void move_up (char map[][80]);
+	
+	private:
+		bool valid_move(char map[][80], int direction); // 0 = up, 1 = down, 2 = left, 3 = right
 };

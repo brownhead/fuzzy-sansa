@@ -37,44 +37,68 @@ void Control::print_full_map (char map[][80]) const //done
 	}
 }
 
-void Control::move_right(char map[][80]) //done
+
+void Control::move_up(char map[][80]) //
 {
-	if (map[dude_x][dude_y + 1] == '#' || map[dude_x][dude_y + 1] == '%')
+	if (valid_move(map, 0))
 	{
-		dude_y += 1;
+		dude_x -= 1;
 	}
 }
 
+
 void Control::move_down(char map[][80]) //
 {
-	if (map[dude_x+1][dude_y] == '#' || map[dude_x+1][dude_y] == '%')
+	if (valid_move(map, 1))
 	{
 		dude_x += 1;
 	}
 }
 
+
 void Control::move_left(char map[][80]) //
 {
-	if (map[dude_x][dude_y - 1] == '#' || map[dude_x][dude_y - 1] == '%')
+	if (valid_move(map, 2))
 	{
 		dude_y -= 1;
 	}
 }
 
-void Control::move_up(char map[][80]) //
+
+void Control::move_right(char map[][80]) //done
 {
-	if (map[dude_x - 1][dude_y] == '#' || map[dude_x - 1][dude_y] == '%')
+	if (valid_move(map, 3))
 	{
-		dude_x -= 1;
+		dude_y += 1;
 	}
 }
+
 
 int Control::get_X(const char map[][80])
 {
 	return dude_x;
 }
 
+
 int Control::get_Y(const char map[][80])
 {
 	return dude_y;
+}
+
+
+bool Control::valid_move(char map[][80], int direction){
+	if(direction == 0 && (map[dude_x - 1][dude_y] == '#' || map[dude_x - 1][dude_y] == '%')) // Up
+		return true;
+
+	else if(direction == 1 && (map[dude_x+1][dude_y] == '#' || map[dude_x+1][dude_y] == '%')) // Down
+		return true;
+
+	else if(direction == 2 && (map[dude_x][dude_y - 1] == '#' || map[dude_x][dude_y - 1] == '%')) // Left
+		return true;
+
+	else if(direction == 3 && (map[dude_x][dude_y + 1] == '#' || map[dude_x][dude_y + 1] == '%')) // Right
+		return true;
+
+	else
+		return false;
 }
