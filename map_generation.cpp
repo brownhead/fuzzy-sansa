@@ -328,7 +328,7 @@ void map_variables(char map[80][80])
 {
 	int x = 40; //start position of X
 	int y = 40; //start position of Y
-	int total_tiles = 20; //number of turns taken. Note: size of map 
+	int total_tiles = 800; //number of turns taken. Note: size of map 
 	int tile_count = 0;
 	int face_direction = -1;
 	//room_size_R + room_size_L = one side of the room box 3+2 = 5 so 5x5

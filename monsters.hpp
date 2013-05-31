@@ -6,6 +6,7 @@
 #include <cstdlib>
 
 class Monster{
+public:
 	std::string name; // Default "Larry"
 	Point location; // Random location on mp
 	unsigned hp; // Hit points (25)

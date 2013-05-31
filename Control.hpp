@@ -14,7 +14,7 @@ class Control
 		vector<Monster> monsters;
 	public:
 		Control(int, int);
-		void print_full_map (char map[][80]) const;
+		void print_full_map (char map[][80], Monster) const;
 		int get_X(const char map[][80]);
 		int get_Y(const char map[][80]);
 		void move_right (char map[][80]);

@@ -24,9 +24,9 @@ void print_map(char map[80][80], Control position, Size view, Monster monster1) 
 			}
 			else
 				cout << map[i][j] << " ";
-			}
-			cout << endl;
 		}
+		cout << endl;
+	}
 }
 
 void player_interface(Control position, char map[][80], Size view, Status life_points, Monster monster1)
@@ -54,7 +54,7 @@ void player_interface(Control position, char map[][80], Size view, Status life_p
 		//position.print_full_map(map);
 		if (input == 'M' || input == 'm')
 		{
-			position.print_full_map(map);
+			position.print_full_map(map, monster1);
 			life_points.print_health();
 			life_points.print_armor();
 		}
@@ -81,6 +81,7 @@ int main()
 
 
 	cout << "Welcome to fuzzy-sansa!\n";
+	cout << "MONSTER AT: " << monster1.location.x << " " << monster1.location.y << endl;
 
 	char map[80][80]; // Initialize map with periods
 

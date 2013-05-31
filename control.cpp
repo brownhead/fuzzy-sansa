@@ -7,7 +7,7 @@ Control::Control (int dude_x, int dude_y)
 {
 }
 
-void Control::print_full_map (char map[][80]) const //done
+void Control::print_full_map (char map[][80], Monster monster1) const //done
 {
 	int spot;
 	for (unsigned int r = 0; r < 80; r++)
@@ -24,6 +24,7 @@ void Control::print_full_map (char map[][80]) const //done
 				spot = 1;
 			}
 			map[dude_x][dude_y] = '@';
+			map[monster1.location.x][monster1.location.y] = 'M';
 		}
 		cout << endl;
 	}
